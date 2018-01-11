@@ -1,10 +1,10 @@
 MPICC=/usr/bin/mpicc.mpich
 MPICXX=/usr/bin/mpicxx.mpich
 CPPFLAGS= # Use for directory inclusion
-CFLAGS= -g -Wall -Werror -pedantic
-CXXFLAGS= -g - Wall -Werror -pedantic
+CFLAGS= -g -Wall -Werror -pedantic 
+CXXFLAGS= -g - Wall -Werror -pedantic 
 
-LDFLAGS= -L${HOME}/repos/sst-dumpi/build/lib
+LDFLAGS= -L${HOME}/sst-dumpi/build/lib 
 LD_LIBRARY_FLAGS= -lm -ldumpi
 LIBS=
 
@@ -24,7 +24,7 @@ $(TARGETS): $(OBJECTS)
 	$(MPICC) $(LDFLAGS) $< -o $@ $(LD_LIBRARY_FLAGS) $(LIBS)
 
 clean:
-	rm *.o
-	rm *.exe
+	rm -f *.o
+	rm -f *.exe
 
 
