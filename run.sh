@@ -22,6 +22,8 @@ mkdir build
 ./configure --prefix=$HOME/sst-dumpi/build --enable-libdumpi --with-mpi-version=3 CFLAGS=-I/usr/include/mpich LDFLAGS=-L/usr/lib/mpich/lib LIBS=-lmpi
 make 
 make install
+# This adds the dir containing some SST utilities (e.g., dumpi2ascii) to your PATH
+export PATH=$PATH:$HOME/sst-dumpi/build/bin
 
 # Compile and link test program
 # Notes:
@@ -44,6 +46,4 @@ make
 #   MPI processes. If you don't include this, only MPI process 0 will start and 
 #   your program will hang.
 srun -N1 -n4 --mpi=pmi2 ./ring.exe 4
-
-
-
+echo "Try running \"dumpi2ascii SOME_DUMPI_FILE.bin > trace.txt\""
